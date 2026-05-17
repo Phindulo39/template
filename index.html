@@ -1,838 +1,552 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Invitation - Mary & Joseph</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --sage: #8a9e7c;
-            --sage-light: #b5c9a8;
-            --sage-pale: #dce8d5;
-            --blush: #e8c4c4;
-            --blush-dark: #d4a0a0;
-            --cream: #faf7f2;
-            --parchment: #f0ead8;
-            --brown: #6b5b4f;
-            --brown-light: #9c897f;
-            --white: #ffffff;
-        }
-
-        body {
-            font-family: 'Jost', sans-serif;
-            color: var(--brown);
-            background: var(--cream);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        /* Floral decorative element */
-        .floral-divider {
-            text-align: center;
-            font-size: 1.5rem;
-            color: var(--sage);
-            margin: 1rem 0;
-            letter-spacing: 0.5rem;
-            opacity: 0.7;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(250, 247, 242, 0.96);
-            padding: 1rem 2rem;
-            box-shadow: 0 1px 20px rgba(138, 158, 124, 0.15);
-            z-index: 1000;
-            backdrop-filter: blur(8px);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--brown);
-            font-weight: 300;
-            font-size: 0.85rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--sage);
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after { width: 100%; }
-        nav a:hover { color: var(--sage); }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            background: 
-                radial-gradient(ellipse at 15% 20%, rgba(181, 201, 168, 0.3) 0%, transparent 50%),
-                radial-gradient(ellipse at 85% 80%, rgba(232, 196, 196, 0.3) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(220, 232, 213, 0.2) 0%, transparent 60%),
-                linear-gradient(160deg, #f7f2ec 0%, #eee6d8 40%, #f0e8e8 70%, #f5f0e8 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 6rem 2rem 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 300px;
-            height: 300px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='40' cy='60' r='8' fill='%238a9e7c' opacity='0.2'/%3E%3Ccircle cx='70' cy='30' r='5' fill='%23d4a0a0' opacity='0.2'/%3E%3Ccircle cx='20' cy='100' r='6' fill='%238a9e7c' opacity='0.15'/%3E%3Cellipse cx='100' cy='50' rx='15' ry='8' fill='%23b5c9a8' opacity='0.15' transform='rotate(30 100 50)'/%3E%3Cellipse cx='50' cy='140' rx='12' ry='6' fill='%23e8c4c4' opacity='0.2' transform='rotate(-20 50 140)'/%3E%3C/svg%3E") no-repeat;
-            pointer-events: none;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30px;
-            right: -30px;
-            width: 350px;
-            height: 350px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='160' cy='40' r='10' fill='%23e8c4c4' opacity='0.2'/%3E%3Ccircle cx='130' cy='80' r='6' fill='%238a9e7c' opacity='0.2'/%3E%3Ccircle cx='180' cy='120' r='8' fill='%23d4a0a0' opacity='0.15'/%3E%3Cellipse cx='100' cy='160' rx='18' ry='9' fill='%23b5c9a8' opacity='0.15' transform='rotate(15 100 160)'/%3E%3C/svg%3E") no-repeat;
-            pointer-events: none;
-        }
-
-        .hero-tag {
-            font-family: 'Jost', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--sage);
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-        }
-
-        .hero h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 6rem;
-            color: var(--brown);
-            font-weight: 300;
-            line-height: 1;
-            letter-spacing: 0.02em;
-        }
-
-        .hero .ampersand {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
-            font-style: italic;
-            color: var(--sage);
-            display: block;
-            margin: 0.5rem 0;
-            font-weight: 300;
-        }
-
-        .hero-florals {
-            font-size: 2rem;
-            color: var(--sage-light);
-            margin: 1.5rem 0;
-            letter-spacing: 0.3em;
-        }
-
-        .hero .date {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            color: var(--brown-light);
-            margin-top: 1.5rem;
-            font-style: italic;
-            letter-spacing: 0.05em;
-        }
-
-        .hero .subtitle {
-            font-size: 0.8rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--sage);
-            margin-top: 0.8rem;
-        }
-
-        .scroll-hint {
-            position: absolute;
-            bottom: 2.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--sage-light);
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(6px); }
-        }
-
-        /* Sections */
-        .section-wrap {
-            padding: 6rem 2rem;
-        }
-
-        .section-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header .eyebrow {
-            font-size: 0.7rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--sage);
-            display: block;
-            margin-bottom: 0.8rem;
-        }
-
-        .section-header h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            font-weight: 300;
-            color: var(--brown);
-            font-style: italic;
-        }
-
-        .section-header .leaf-line {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .section-header .leaf-line::before,
-        .section-header .leaf-line::after {
-            content: '';
-            height: 1px;
-            width: 60px;
-            background: linear-gradient(to right, transparent, var(--sage-light));
-        }
-
-        .section-header .leaf-line::after {
-            background: linear-gradient(to left, transparent, var(--sage-light));
-        }
-
-        /* Alternating backgrounds */
-        .section-wrap.alt-bg {
-            background: linear-gradient(180deg, var(--parchment) 0%, var(--cream) 100%);
-        }
-
-        /* Our Story */
-        .story-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .story-text {
-            font-size: 1.05rem;
-            font-weight: 300;
-            color: var(--brown);
-        }
-
-        .story-text p + p {
-            margin-top: 1.2rem;
-        }
-
-        .story-text blockquote {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 1.5rem;
-            color: var(--sage);
-            border-left: 3px solid var(--sage-light);
-            padding-left: 1.5rem;
-            margin: 1.5rem 0;
-            line-height: 1.5;
-        }
-
-        .story-image {
-            position: relative;
-        }
-
-        .story-image::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            right: 15px;
-            bottom: 15px;
-            border: 1px solid var(--sage-light);
-            border-radius: 12px;
-            z-index: 0;
-        }
-
-        .story-image img,
-        .story-image .img-placeholder {
-            width: 100%;
-            height: 420px;
-            object-fit: cover;
-            border-radius: 10px;
-            display: block;
-            position: relative;
-            z-index: 1;
-        }
-
-        .img-placeholder {
-            background: linear-gradient(135deg, var(--sage-pale), var(--blush));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--sage);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            font-style: italic;
-        }
-
-        /* Details Cards */
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .detail-card {
-            background: var(--white);
-            padding: 2.5rem 2rem;
-            border-radius: 16px;
-            text-align: center;
-            border: 1px solid rgba(138, 158, 124, 0.2);
-            box-shadow: 0 8px 30px rgba(138, 158, 124, 0.08);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .detail-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--sage-light), var(--blush));
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 1.2rem;
-            display: block;
-        }
-
-        .detail-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--sage);
-            font-size: 1.4rem;
-            margin-bottom: 1.2rem;
-            font-style: italic;
-            font-weight: 400;
-        }
-
-        .detail-card p {
-            color: var(--brown);
-            margin: 0.4rem 0;
-            font-size: 0.95rem;
-            font-weight: 300;
-        }
-
-        .detail-card p strong {
-            font-weight: 500;
-            color: var(--brown);
-        }
-
-        /* RSVP */
-        .rsvp-wrap {
-            background: linear-gradient(135deg, 
-                rgba(138, 158, 124, 0.08) 0%, 
-                rgba(232, 196, 196, 0.1) 50%,
-                rgba(181, 201, 168, 0.08) 100%);
-            border-radius: 20px;
-            padding: 3.5rem;
-            max-width: 620px;
-            margin: 0 auto;
-            border: 1px solid rgba(138, 158, 124, 0.2);
-            text-align: center;
-        }
-
-        .rsvp-wrap p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            font-style: italic;
-            color: var(--brown);
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
-        }
-
-        .rsvp-deadline {
-            font-family: 'Jost', sans-serif;
-            font-size: 0.8rem !important;
-            font-style: normal !important;
-            letter-spacing: 0.1em;
-            color: var(--sage) !important;
-            text-transform: uppercase;
-            margin-bottom: 2rem !important;
-        }
-
-        .submit-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--sage), #7a9070);
-            color: white;
-            padding: 1rem 3rem;
-            border: none;
-            border-radius: 50px;
-            font-family: 'Jost', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 400;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s;
-            box-shadow: 0 8px 25px rgba(138, 158, 124, 0.3);
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(138, 158, 124, 0.4);
-            background: linear-gradient(135deg, #7a9070, #6a8060);
-        }
-
-        .rsvp-note {
-            font-family: 'Jost', sans-serif !important;
-            font-size: 0.78rem !important;
-            font-style: normal !important;
-            color: var(--brown-light) !important;
-            margin-top: 1rem !important;
-            letter-spacing: 0.05em;
-        }
-
-        /* Registry */
-        .registry-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-        }
-
-        .registry-card {
-            background: var(--white);
-            padding: 2.5rem 2rem;
-            border-radius: 16px;
-            text-align: center;
-            border: 1px solid rgba(138, 158, 124, 0.2);
-            box-shadow: 0 8px 30px rgba(138, 158, 124, 0.08);
-        }
-
-        .registry-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--brown);
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
-            font-style: italic;
-            font-weight: 400;
-        }
-
-        .registry-card p {
-            color: var(--brown-light);
-            font-size: 0.9rem;
-            font-weight: 300;
-            margin-bottom: 0.5rem;
-        }
-
-        .registry-btn {
-            display: inline-block;
-            background: transparent;
-            color: var(--sage);
-            padding: 0.7rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            margin-top: 1.2rem;
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            border: 1.5px solid var(--sage);
-            transition: all 0.3s;
-        }
-
-        .registry-btn:hover {
-            background: var(--sage);
-            color: white;
-        }
-
-        .bank-details-box {
-            background: linear-gradient(135deg, var(--sage-pale), rgba(232, 196, 196, 0.2));
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-top: 1.2rem;
-            text-align: left;
-        }
-
-        .bank-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.4rem 0;
-            border-bottom: 1px solid rgba(138, 158, 124, 0.15);
-            font-size: 0.88rem;
-        }
-
-        .bank-row:last-child { border-bottom: none; }
-
-        .bank-row .b-label {
-            color: var(--sage);
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-
-        .bank-row .b-value {
-            color: var(--brown);
-            font-weight: 400;
-        }
-
-        .bank-ref {
-            text-align: center;
-            font-size: 0.78rem;
-            color: var(--brown-light);
-            font-style: italic;
-            margin-top: 0.8rem;
-        }
-
-        /* Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        .gallery-item {
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.03);
-        }
-
-        .gallery-item .gallery-placeholder {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, var(--sage-pale), var(--blush));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--sage);
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #5a4f43, #6b5b4f);
-            color: rgba(255,255,255,0.8);
-            text-align: center;
-            padding: 3rem 2rem;
-        }
-
-        footer .footer-names {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            font-style: italic;
-            font-weight: 300;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 0.5rem;
-        }
-
-        footer p {
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-            opacity: 0.7;
-        }
-
-        /* Fade-in animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3.5rem; }
-            .hero .ampersand { font-size: 2.8rem; }
-            .story-content { grid-template-columns: 1fr; }
-            .gallery-grid { grid-template-columns: 1fr 1fr; }
-            nav ul { flex-wrap: wrap; gap: 1rem; }
-            .rsvp-wrap { padding: 2rem 1.5rem; }
-            .section-wrap { padding: 4rem 1.5rem; }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 2.8rem; }
-            .gallery-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FrostHaven — Winter Collection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    :root {
+      --navy: #1a2540;
+      --navy-light: #243059;
+      --ice: #e8f0f7;
+      --ice-dark: #cddcea;
+      --frost: #f4f8fb;
+      --gold: #c8a96e;
+      --gold-light: #e0c98a;
+      --white: #ffffff;
+      --text-dark: #1a2540;
+      --text-mid: #4a5568;
+      --text-light: #7a8a9e;
+      --card-shadow: 0 4px 24px rgba(26,37,64,0.10);
+      --transition: 0.25s ease;
+    }
+ 
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--frost);
+      color: var(--text-dark);
+      min-height: 100vh;
+    }
+ 
+    /* ── NAV ── */
+    nav {
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--white); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--ice);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 700;
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .cart-icon {
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+      position: relative;
+    }
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+ 
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #2d4a7a 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 90px 2rem 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='4' cy='4' r='1.5' fill='%23ffffff' opacity='0.07'/%3E%3Ccircle cx='30' cy='15' r='1' fill='%23ffffff' opacity='0.05'/%3E%3Ccircle cx='52' cy='8' r='1.2' fill='%23ffffff' opacity='0.06'/%3E%3Ccircle cx='14' cy='40' r='0.8' fill='%23ffffff' opacity='0.04'/%3E%3Ccircle cx='45' cy='48' r='1.5' fill='%23ffffff' opacity='0.05'/%3E%3C/svg%3E") repeat;
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.12;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .hero p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--ice);
+      max-width: 500px;
+      margin: 0 auto 2.4rem;
+      line-height: 1.7;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      text-decoration: none;
+      padding: 0.9rem 2.4rem;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .hero-cta:hover { background: var(--gold-light); transform: translateY(-2px); }
+ 
+    /* ── SECTION ── */
+    .section { max-width: 1160px; margin: 0 auto; padding: 70px 2rem; }
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: var(--navy);
+      font-weight: 600;
+    }
+ 
+    /* ── FILTERS ── */
+    .filters {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2.8rem;
+    }
+    .filter-btn {
+      background: var(--white);
+      border: 1.5px solid var(--ice-dark);
+      color: var(--text-mid);
+      padding: 0.45rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+      font-family: 'Lato', sans-serif;
+      letter-spacing: 0.04em;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: var(--white);
+    }
+ 
+    /* ── GRID ── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 2rem;
+    }
+ 
+    /* ── CARD ── */
+    .product-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 36px rgba(26,37,64,0.15);
+    }
+    .card-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      background: var(--ice);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      position: relative;
+    }
+    .card-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--navy);
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 3px;
+    }
+    .card-body {
+      padding: 1.2rem 1.4rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .card-category {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 1.1rem;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+    }
+    .card-price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .card-price-old {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      text-decoration: line-through;
+      font-weight: 400;
+    }
+    .add-btn {
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+      font-family: 'Lato', sans-serif;
+      white-space: nowrap;
+    }
+    .add-btn:hover { background: var(--gold); color: var(--navy); }
+    .add-btn:active { transform: scale(0.97); }
+    .add-btn.added { background: #2d7a4f; }
+ 
+    /* ── FEATURES STRIP ── */
+    .features {
+      background: var(--navy);
+      color: var(--white);
+      padding: 3rem 2rem;
+    }
+    .features-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+    .feature-icon { font-size: 2rem; margin-bottom: 0.7rem; }
+    .feature-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--gold);
+      margin-bottom: 0.35rem;
+    }
+    .feature-desc { font-size: 0.85rem; color: var(--ice); line-height: 1.6; }
+ 
+    /* ── CART TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--navy);
+      color: var(--white);
+      padding: 0.9rem 1.5rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-left: 4px solid var(--gold);
+      transform: translateY(120%);
+      transition: transform 0.3s ease;
+      z-index: 200;
+    }
+    .toast.show { transform: translateY(0); }
+ 
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: var(--ice);
+      text-align: center;
+      padding: 2.4rem 1rem;
+      font-size: 0.85rem;
+    }
+    footer strong { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1rem; }
+ 
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero { padding: 60px 1.2rem 60px; }
+    }
+  </style>
 </head>
 <body>
-
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#story">Our Story</a></li>
-            <li><a href="#details">Details</a></li>
-            <li><a href="#rsvp">RSVP</a></li>
-            <li><a href="#registry">Registry</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <p class="hero-tag">Together forever begins</p>
-        <h1>Mary</h1>
-        <span class="ampersand">&</span>
-        <h1>Joseph</h1>
-        <div class="hero-florals">✿ ❀ ✿</div>
-        <p class="date">January 1st, 2027</p>
-        <p class="subtitle">We're getting married</p>
-
-        <div class="scroll-hint">
-            ↓
-            <span>scroll</span>
+ 
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Frost<span>Haven</span></a>
+  <ul class="nav-links">
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="cart-icon" onclick="openCart()">
+    🛒 <span class="cart-count" id="cartCount">0</span>
+  </div>
+</nav>
+ 
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">New Winter Collection 2025</p>
+  <h1>Stay Warm.<br /><em>Stay Stylish.</em></h1>
+  <p>Premium winter essentials crafted for cold days. From cozy knitwear to weatherproof outerwear — everything you need for the season.</p>
+  <a href="#shop" class="hero-cta">Shop the Collection</a>
+</section>
+ 
+<!-- SHOP -->
+<section class="section" id="shop">
+  <div class="section-header">
+    <p class="section-eyebrow">Winter Essentials</p>
+    <h2 class="section-title">Our Collection</h2>
+  </div>
+ 
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterProducts('all', this)">All Items</button>
+    <button class="filter-btn" onclick="filterProducts('outerwear', this)">Outerwear</button>
+    <button class="filter-btn" onclick="filterProducts('knitwear', this)">Knitwear</button>
+    <button class="filter-btn" onclick="filterProducts('accessories', this)">Accessories</button>
+    <button class="filter-btn" onclick="filterProducts('footwear', this)">Footwear</button>
+  </div>
+ 
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+ 
+<!-- FEATURES -->
+<section class="features">
+  <div class="features-inner">
+    <div>
+      <div class="feature-icon">🚚</div>
+      <p class="feature-title">Free Delivery</p>
+      <p class="feature-desc">Free shipping on all orders over R800. Fast delivery nationwide.</p>
+    </div>
+    <div>
+      <div class="feature-icon">🔄</div>
+      <p class="feature-title">Easy Returns</p>
+      <p class="feature-desc">30-day hassle-free returns on all unworn items.</p>
+    </div>
+    <div>
+      <div class="feature-icon">🛡️</div>
+      <p class="feature-title">Quality Guarantee</p>
+      <p class="feature-desc">Every item tested for warmth, durability, and comfort.</p>
+    </div>
+    <div>
+      <div class="feature-icon">💳</div>
+      <p class="feature-title">Secure Checkout</p>
+      <p class="feature-desc">Encrypted payments. Your data is always safe.</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer id="contact">
+  <p><strong>FrostHaven</strong></p>
+  <p style="margin-top:0.5rem;">contact@frosthaven.co.za &nbsp;|&nbsp; +27 (0)12 555 0199</p>
+  <p style="margin-top:0.5rem; opacity:0.5;">© 2025 FrostHaven. All rights reserved.</p>
+</footer>
+ 
+<!-- TOAST -->
+<div class="toast" id="toast">✓ Added to cart!</div>
+ 
+<script>
+  const products = [
+    {
+      id: 1, name: "Alpine Down Parka", category: "outerwear",
+      price: 2499, oldPrice: 3199,
+      emoji: "🧥", badge: "Best Seller",
+      desc: "Water-resistant shell with 650-fill duck down. Adjustable hood, zip storm flap, and deep hand pockets. Warmth rated to -20°C."
+    },
+    {
+      id: 2, name: "Merino Cable-Knit Sweater", category: "knitwear",
+      price: 899, oldPrice: null,
+      emoji: "🧶", badge: null,
+      desc: "100% extra-fine merino wool. Classic cable-knit pattern, ribbed cuffs and hem. Naturally odour-resistant and temperature regulating."
+    },
+    {
+      id: 3, name: "Sherpa-Lined Beanie", category: "accessories",
+      price: 249, oldPrice: null,
+      emoji: "🎩", badge: "New",
+      desc: "Double-layer knit exterior with plush sherpa lining. Slouchy fit, one size fits all. Available in 8 seasonal colours."
+    },
+    {
+      id: 4, name: "Thermal Snow Boots", category: "footwear",
+      price: 1649, oldPrice: 1999,
+      emoji: "👢", badge: "Sale",
+      desc: "Waterproof suede upper with 200g Thinsulate insulation. Non-slip Vibram outsole rated to -40°C. Perfect for ice and snow."
+    },
+    {
+      id: 5, name: "Wool Tartan Scarf", category: "accessories",
+      price: 349, oldPrice: null,
+      emoji: "🧣", badge: null,
+      desc: "Generous 210cm x 35cm pure lambswool scarf in a classic tartan weave. Fringed ends. Wrap twice for extra warmth."
+    },
+    {
+      id: 6, name: "Fleece-Lined Joggers", category: "knitwear",
+      price: 699, oldPrice: 849,
+      emoji: "👖", badge: "Sale",
+      desc: "Brushed fleece interior on a water-repellent shell. Elasticated waist with drawstring, deep side pockets. Tapered leg."
+    },
+    {
+      id: 7, name: "Insulated Ski Gloves", category: "accessories",
+      price: 449, oldPrice: null,
+      emoji: "🧤", badge: null,
+      desc: "Touchscreen-compatible fingertips. PrimaLoft Gold insulation, reinforced palm, adjustable cuff. Waterproof GORE-TEX insert."
+    },
+    {
+      id: 8, name: "Trench Coat — Wool Blend", category: "outerwear",
+      price: 3299, oldPrice: null,
+      emoji: "🪡", badge: "New",
+      desc: "60% wool 40% cashmere blend outer with a satin lining. Double-breasted with storm flap, belt and oversized lapels."
+    },
+  ];
+ 
+  let cartCount = 0;
+  let currentFilter = 'all';
+ 
+  function renderProducts(filter) {
+    const grid = document.getElementById('productsGrid');
+    const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+    grid.innerHTML = filtered.map(p => `
+      <div class="product-card" data-category="${p.category}">
+        <div class="card-image">
+          ${p.emoji}
+          ${p.badge ? `<span class="card-badge">${p.badge}</span>` : ''}
         </div>
-    </section>
-
-    <!-- Our Story -->
-    <section id="story" class="section-wrap fade-in">
-        <div class="section-inner">
-            <div class="section-header">
-                <span class="eyebrow">How it began</span>
-                <h2>Our Story</h2>
-                <div class="leaf-line">✦</div>
+        <div class="card-body">
+          <p class="card-category">${p.category}</p>
+          <h3 class="card-name">${p.name}</h3>
+          <p class="card-desc">${p.desc}</p>
+          <div class="card-footer">
+            <div>
+              <div class="card-price">R${p.price.toLocaleString()}</div>
+              ${p.oldPrice ? `<div class="card-price-old">R${p.oldPrice.toLocaleString()}</div>` : ''}
             </div>
-            <div class="story-content">
-                <div class="story-text">
-                    <blockquote>"I like that song 'Made for More.' What does it mean?"</blockquote>
-                    <p>It all began one Sunday afternoon. When those words arrived, something stirred — here was someone who truly listened to the words they sang. Little did we know, love was already quietly beginning its work.</p>
-                    <br>
-                    <p>From that moment, countless hours were shared together — the kind of easy, unhurried time that slowly becomes the most precious thing. Before long, two separate stories had become one, woven together in the most natural and beautiful way.</p>
-                    <br>
-                    <p>And now, we can't wait to begin the most wonderful chapter yet.</p>
-                </div>
-                <div class="story-image">
-                    <img src="imagies/propose.png" alt="Mary and Joseph" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="imagies/propose.png" style="display:none;">Our photo here ✿</div>
-                </div>
-            </div>
+            <button class="add-btn" onclick="addToCart(this, '${p.name}')">Add to Cart</button>
+          </div>
         </div>
-    </section>
-
-    <!-- Wedding Details -->
-    <section id="details" class="section-wrap alt-bg fade-in">
-        <div class="section-inner">
-            <div class="section-header">
-                <span class="eyebrow">Save the date</span>
-                <h2>Wedding Details</h2>
-                <div class="leaf-line">✦</div>
-            </div>
-            <div class="details-grid">
-                <div class="detail-card">
-                    <span class="card-icon">🌿</span>
-                    <h3>Ceremony & Reception</h3>
-                    <p><strong>Date:</strong> January 1, 2027</p>
-                    <p><strong>Time:</strong> 2:30 PM</p>
-                    <p><strong>Venue:</strong> Gardens Resort</p>
-                    <p style="font-size:0.85rem; margin-top:0.5rem; color: var(--brown-light);">7 Umgazi St, Menlo Park, Pretoria</p>
-                </div>
-                <div class="detail-card">
-                    <span class="card-icon">🌸</span>
-                    <h3>Dress Code</h3>
-                    <p><strong>Semi-Formal</strong></p>
-                    <p>Shades of Brown</p>
-                    <p style="color: var(--blush-dark); font-size: 0.88rem; margin-top: 0.6rem;">No Jeans, please</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- RSVP -->
-    <section id="rsvp" class="section-wrap fade-in">
-        <div class="section-inner">
-            <div class="section-header">
-                <span class="eyebrow">Will you join us?</span>
-                <h2>RSVP</h2>
-                <div class="leaf-line">✦</div>
-            </div>
-            <div class="rsvp-wrap">
-                <p>We can't wait to celebrate with you! Please let us know if you'll be joining us on our special day.</p>
-                <p class="rsvp-deadline">Kindly RSVP before December 1, 2026</p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScN1iTn8P1FmWoMlBL5Ur1THU2f6pZyPJwzL8kxOZzRrC3VIw/viewform?usp=publish-editor"
-                   target="_blank"
-                   class="submit-btn">
-                    Complete RSVP Form
-                </a>
-                <p class="rsvp-note">The form will open in a new tab</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Registry -->
-    <section id="registry" class="section-wrap alt-bg fade-in">
-        <div class="section-inner">
-            <div class="section-header">
-                <span class="eyebrow">Gifts & giving</span>
-                <h2>Gift Registry</h2>
-                <div class="leaf-line">✦</div>
-            </div>
-            <div class="registry-grid">
-                <div class="registry-card">
-                    <span class="card-icon">🌷</span>
-                    <h3>Gift Registry</h3>
-                    <p>Browse our curated selections for our new home together</p>
-                    <a href="https://www.myregistry.com/za/en/" target="_blank" class="registry-btn">View Registry</a>
-                </div>
-                <div class="registry-card">
-                    <span class="card-icon">🌼</span>
-                    <h3>Honeymoon Fund</h3>
-                    <p>Contribute to our honeymoon adventure</p>
-                    <div class="bank-details-box">
-                        <div class="bank-row">
-                            <span class="b-label">Bank</span>
-                            <span class="b-value">Big Bank</span>
-                        </div>
-                        <div class="bank-row">
-                            <span class="b-label">Account Name</span>
-                            <span class="b-value">Mr J Smith</span>
-                        </div>
-                        <div class="bank-row">
-                            <span class="b-label">Account No.</span>
-                            <span class="b-value">1234567890</span>
-                        </div>
-                        <div class="bank-row">
-                            <span class="b-label">Branch Code</span>
-                            <span class="b-value">427000</span>
-                        </div>
-                        <p class="bank-ref">Reference: Wedding Gift</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery -->
-    <section id="gallery" class="section-wrap fade-in">
-        <div class="section-inner">
-            <div class="section-header">
-                <span class="eyebrow">Moments together</span>
-                <h2>Our Gallery</h2>
-                <div class="leaf-line">✦</div>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="imagies/Screenshot 2026-02-28 221910.png" alt="Mary and Joseph"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="imagies/Screenshot 2026-02-28 221910.png" style="display:none;">✿ Photo</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="imagies/sefie.png" alt="Mary and Joseph"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="imagies/sefie.png" style="display:none;">✿ Photo</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="imagies/Screenshot 2026-02-28 221848.png" alt="Mary and Joseph"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="imagies/Screenshot 2026-02-28 221848.png" style="display:none;">✿ Photo</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-names">Mary & Joseph</div>
-        <p>January 1, 2027 · Gardens Resort, Pretoria</p>
-        <p style="margin-top: 0.5rem;">With love &amp; gratitude ✿</p>
-    </footer>
-
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Fade-in on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
+      </div>
+    `).join('');
+  }
+ 
+  function filterProducts(cat, btn) {
+    currentFilter = cat;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderProducts(cat);
+  }
+ 
+  function addToCart(btn, name) {
+    cartCount++;
+    document.getElementById('cartCount').textContent = cartCount;
+    btn.textContent = '✓ Added!';
+    btn.classList.add('added');
+    setTimeout(() => {
+      btn.textContent = 'Add to Cart';
+      btn.classList.remove('added');
+    }, 1800);
+    showToast(`"${name}" added to cart`);
+  }
+ 
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = '✓ ' + msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+ 
+  function openCart() {
+    if (cartCount === 0) {
+      showToast('Your cart is empty');
+    } else {
+      showToast(`${cartCount} item${cartCount > 1 ? 's' : ''} in your cart`);
+    }
+  }
+ 
+  renderProducts('all');
+</script>
 </body>
 </html>
+ 
